@@ -1,0 +1,3 @@
+[virtualenvs]
+create = true  # this creates virtual environment as part of install process
+in-project = true # this creates virtual environment directory in-project called ".venv"

@@ -1,0 +1,46 @@
+[tool.poetry]
+name = "intaf-cpe-plugin"
+version = "0.1.0"
+description = "A plugin to the Infosys Test Automation Framework (INTAF) that helps to automate the 5G CPE devices"
+authors = ["Sreeejith R"]
+license = "Apache-2.0"
+readme = "README.md"
+packages = [{include = "app"}]
+
+[tool.poetry.dependencies]
+python = ">=3.9"
+pytest = ">=7.4.1"
+fastapi = "^0.103.1"
+uvicorn = {extras = ["standard"], version = "^0.23.2"}
+selenium = "^4.12.0"
+
+[tool.poetry.group.dev.dependencies]
+black = ">=23.7.0"
+isort = ">=5.12.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ['py39', 'py310', 'py311']
+
+[tool.isort]
+profile = "black"
+skip_glob = [".venv/*"]
+known_first_party = ["app", "tests"]
+#verbose = "true"
+import_heading_stdlib="Standard libraries"
+import_heading_firstparty="Plugin internals"
+import_heading_thirdparty="Third-party libraries"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+testpaths = [
+    "tests",
+]
+
+#[tool.poetry.scripts]
+#postactivate = ". $VIRTUAL_ENV/../scripts/postactivate"
+#postdeactivate = ". $VIRTUAL_ENV/../scripts/postdeactivate"
